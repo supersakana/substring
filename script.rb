@@ -1,20 +1,14 @@
-require 'pry-byebug'
-#  ruby./script.rb
-#  binding.pry
-
-dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
-
-def substring(string)
-    hash = {}
+def substring(string, array)
+    hash = Hash.new(0)
     str = string.downcase.split(" ")
 
     str.each do |word|
-        dictionary.each do |value|
-            puts word
-            puts value
+        array.each do |value|
+            if word.include?(value)
+              hash[value] += 1
+            end
         end
     end
+    puts hash
 end
-
-substring("Howdy partner, sit down! How's it going?")
 
